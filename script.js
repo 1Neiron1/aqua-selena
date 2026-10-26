@@ -205,7 +205,7 @@ PHOTOS.forEach((p, i) => {
   b.style.setProperty('--bg', PH_BG[i % PH_BG.length]);
   b.innerHTML = `<span>${p.cap}</span>`;
   if (p.src) {
-    const im = new Image(); im.loading = 'lazy'; im.alt = p.cap; im.decoding = 'async';
+    const im = new Image(); im.alt = p.cap; im.decoding = 'async';
     im.onload = () => { b.classList.remove('ph'); b.innerHTML = ''; b.append(im); b.dataset.ok = 1; };
     im.src = p.src;
   }
@@ -227,7 +227,7 @@ lb.addEventListener('touchstart', e => { sx = e.changedTouches[0].clientX; }, { 
 lb.addEventListener('touchend', e => { const d = e.changedTouches[0].clientX - sx; if (Math.abs(d) > 50) step(d < 0 ? 1 : -1); }, { passive: true });
 /* Фото в блоці «Що вас чекає» */
 const poolPh = $('[data-ph=pool]');
-if (poolPh) { const im = new Image(); im.alt = 'Басейн AQUA SELENA'; im.loading = 'lazy'; im.onload = () => { poolPh.prepend(im); poolPh.querySelector('span').remove(); }; im.src = PHOTOS[0].src; }
+if (poolPh) { const im = new Image(); im.alt = 'Басейн AQUA SELENA'; im.onload = () => { poolPh.prepend(im); poolPh.querySelector('span').remove(); }; im.src = PHOTOS[0].src; }
 
 /* ===== МЕНЮ ===== */
 const body = $('#menuBody'), tabsEl = $('#tabs'), ind = $('#ind'), chipsEl = $('#chips'), q = $('#q'), mbar = $('#mbar'), emptyEl = $('#empty');
